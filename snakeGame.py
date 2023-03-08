@@ -19,6 +19,8 @@ yPos = displayHeight / 2
 dy = 0
 dx = 0
 
+snakeSpeed = 10
+snakeRadius = 15
 clock = pygame.time.Clock()
 
 gameOver = False
@@ -31,21 +33,21 @@ while not gameOver:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_DOWN:
                 dx = 0
-                dy = 10
+                dy = snakeSpeed
             elif event.key == pygame.K_UP:
                 dx = 0
-                dy = -10
+                dy = -snakeSpeed
             elif event.key == pygame.K_LEFT:
-                dx = -10
+                dx = -snakeSpeed
                 dy = 0
             elif event.key == pygame.K_RIGHT:
-                dx = 10
+                dx = snakeSpeed
                 dy = 0
-        xPos += dx
-        yPos += dy
-        pygame.draw.circle(display, snakeGreen, (xPos, yPos), 30)
-        pygame.display.update()
-        clock.tick(30)
+    xPos += dx
+    yPos += dy
+    pygame.draw.circle(display, snakeGreen, (xPos, yPos), snakeRadius)
+    pygame.display.update()
+    clock.tick(snakeSpeed)
 
 # quits application
 pygame.quit()
