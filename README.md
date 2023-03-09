@@ -8,7 +8,7 @@ TODO:
 - ~~Create display screen~~
 - ~~Create Snake head~~
 - ~~Create Snake movement~~
-- Create boundaries for snake
+- ~~Create boundaries for snake~~
 - Create collectibles placed randomly on screen
 - Create addition to length on Snake when collecting the collectibles 
 - Create Score on display and keep track
@@ -16,4 +16,5 @@ TODO:
 
 
 Known bugs:
-- Snake has ghost trail when moving around screen
+1.  ~~Snake has ghost trail when moving around screen~~ 
+* Fixed by updating location of when screen is filled to right before drawing the snake head

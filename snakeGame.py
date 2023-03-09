@@ -19,15 +19,14 @@ yPos = displayHeight / 2
 dy = 0
 dx = 0
 
-snakeSpeed = 10
+snakeSpeed = 15
 snakeRadius = 15
 clock = pygame.time.Clock()
 
 gameOver = False
-
+    
 while not gameOver:
     for event in pygame.event.get():
-        display.fill(black)
         if event.type == pygame.QUIT:
             gameOver = True
         if event.type == pygame.KEYDOWN:
@@ -45,6 +44,9 @@ while not gameOver:
                 dy = 0
     xPos += dx
     yPos += dy
+    display.fill(black)
+    if yPos < snakeRadius or yPos > displayHeight - snakeRadius or xPos < snakeRadius or xPos > displayWidth - snakeRadius:
+        gameOver = True
     pygame.draw.circle(display, snakeGreen, (xPos, yPos), snakeRadius)
     pygame.display.update()
     clock.tick(snakeSpeed)
