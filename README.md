@@ -18,3 +18,4 @@ TODO:
 Known bugs:
 1.  ~~Snake has ghost trail when moving around screen~~ 
 * Fixed by updating location of when screen is filled to right before drawing the snake head
+2. Food location doesn't get updated when snake is over it

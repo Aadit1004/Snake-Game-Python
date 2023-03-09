@@ -23,6 +23,10 @@ snakeSpeed = 15
 snakeRadius = 15
 clock = pygame.time.Clock()
 
+def drawSnake(snakeList):
+    for pos in snakeList:
+        pygame.draw.circle(display, snakeGreen, (pos[0], pos[1]), snakeRadius)
+
 def game():
     xPos = displayWidth / 2
     yPos = displayHeight / 2
@@ -32,6 +36,9 @@ def game():
     closeGame = False
     foodXlocation = random.randrange(1, displayWidth - 1)
     foodYlocation = random.randrange(1, displayHeight - 1)
+    snakeList = []
+    snakeLength = 1
+    
 
     while not gameOver:
 
@@ -75,12 +82,28 @@ def game():
         display.fill(black)
         if yPos < 0 or yPos > displayHeight or xPos < 0 or xPos > displayWidth:
             closeGame = True
-        pygame.draw.circle(display, snakeGreen, (xPos, yPos), snakeRadius)
-        pygame.draw.circle(display, red, (foodXlocation, foodYlocation), snakeRadius)
+        
+        # pygame.draw.circle(display, snakeGreen, (xPos, yPos), snakeRadius)
+
+        pygame.draw.circle(display, red, (foodXlocation, foodYlocation), snakeRadius) # draw food
+
+        snakeHead = []
+        snakeHead.append(xPos)
+        snakeHead.append(yPos)
+        snakeList.append(snakeHead)
+
+        if len(snakeList) > snakeLength:
+            del snakeList[0]
+
+        drawSnake(snakeList)
         pygame.display.update()
 
         if xPos == foodXlocation and yPos == foodYlocation:
-            print("Captured food!")
+            # draw food again and increase snake length
+            foodXlocation = random.randrange(1, displayWidth - 1)
+            foodYlocation = random.randrange(1, displayHeight - 1)
+            snakeLength += 1
+
         clock.tick(snakeSpeed)
 
     # quits application
