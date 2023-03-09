@@ -11,8 +11,8 @@ TODO:
 - ~~Create boundaries for snake~~
 - Create collectibles placed randomly on screen
 - Create addition to length on Snake when collecting the collectibles 
-- Create Score on display and keep track
-- Create losing and winning screen/text
+- ~~Create Score on display and keep track~~
+- ~~Create losing and winning screen/text~~
 
 
 Known bugs:
