@@ -13,9 +13,11 @@ TODO:
 - Create addition to length on Snake when collecting the collectibles 
 - ~~Create Score on display and keep track~~
 - ~~Create losing and winning screen/text~~
+- Create losing game when snake overlaps and/or exits boundary
 
 
 Known bugs:
 1.  ~~Snake has ghost trail when moving around screen~~ 
 * Fixed by updating location of when screen is filled to right before drawing the snake head
 2. Food location doesn't get updated when snake is over it
+3. Snake length doesn't get updated after consuming food

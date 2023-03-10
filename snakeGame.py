@@ -26,7 +26,7 @@ clock = pygame.time.Clock()
 
 def displayScore(score):
     loseText = calibri_font_small.render("Score: " + str(score), True, lightViolet)
-    display.blit(loseText, [50, 50])
+    display.blit(loseText, [30, 30])
 
 def drawSnake(snakeList):
     for pos in snakeList:
@@ -90,8 +90,6 @@ def game():
         display.fill(black)
         if yPos < 0 or yPos > displayHeight or xPos < 0 or xPos > displayWidth:
             closeGame = True
-        
-        # pygame.draw.circle(display, snakeGreen, (xPos, yPos), snakeRadius)
 
         pygame.draw.circle(display, red, (foodXlocation, foodYlocation), snakeRadius) # draw food
 
@@ -102,6 +100,11 @@ def game():
         displayScore(score)
         if len(snakeList) > snakeLength:
             del snakeList[0]
+
+        # Checks if head is overlapping the body where pos is == to snakeHead position
+        for pos in snakeList[:-1]:
+            if pos == snakeHead:        
+                closeGame = True
 
         drawSnake(snakeList)
         pygame.display.update()
