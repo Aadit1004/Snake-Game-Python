@@ -97,7 +97,7 @@ def game():
         snakeHead.append(xPos)
         snakeHead.append(yPos)
         snakeList.append(snakeHead)
-        displayScore(score)
+        
         if len(snakeList) > snakeLength:
             del snakeList[0]
 
@@ -105,9 +105,7 @@ def game():
         for pos in snakeList[:-1]:
             if pos == snakeHead:        
                 closeGame = True
-
-        drawSnake(snakeList)
-        pygame.display.update()
+        
 
         if xPos == foodXlocation and yPos == foodYlocation:
             # draw food again and increase snake length
@@ -115,6 +113,10 @@ def game():
             foodYlocation = random.randrange(1, displayHeight - 1)
             snakeLength += 1
             score += 1
+
+        drawSnake(snakeList)
+        displayScore(score)
+        pygame.display.update()
 
         clock.tick(snakeSpeed)
 
