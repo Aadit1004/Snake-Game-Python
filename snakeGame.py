@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 pygame.init()
 
@@ -106,8 +107,9 @@ def game():
             if pos == snakeHead:        
                 closeGame = True
         
+        distance = math.sqrt(pow(xPos - foodXlocation, 2) + pow(yPos - foodYlocation, 2))
 
-        if xPos == foodXlocation and yPos == foodYlocation:
+        if distance < 2 * snakeRadius:
             # draw food again and increase snake length
             foodXlocation = random.randrange(1, displayWidth - 1)
             foodYlocation = random.randrange(1, displayHeight - 1)
